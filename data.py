@@ -145,7 +145,7 @@ class MultiModalDataset(Dataset):
 
         # Step 2: Perform modality dropout augmentation
         if self.phase == 'train' and m > 1:  # Only apply during training and if more than 1 modality is available
-            k = random.randint(1, m - 1)  # Randomly choose how many modalities to drop (1 <= k < m)
+            k = random.randint(0, m - 1)  # Randomly choose how many modalities to drop (1 <= k < m)
             modalities_to_drop = random.sample(available_modalities, k)  # Randomly select `k` modalities to drop
             #print(f"Dropping modalities: {modalities_to_drop}")  # Debugging output
 
